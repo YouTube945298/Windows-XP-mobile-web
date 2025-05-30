@@ -1,50 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Windows XP Mobile Web</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Windows XP Mobile</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="desktop">
-    <div class="icon" onclick="openWindow('notepad')">
-      <img src="icons/notepad.png" alt="Notepad" />
-      <div>Notepad</div>
-    </div>
-    <div class="icon" onclick="openWindow('media')">
-      <img src="icons/media.png" alt="Media Player" />
-      <div>Media Player</div>
-    </div>
+  <div id="welcome-screen">
+    <img src="images/welcome.png" alt="Welcome" id="welcome-img">
   </div>
 
-  <div id="taskbar">
-    <div class="start-button" onclick="toggleStartMenu()">
-      <img src="icons/windows-logo.png" alt="Start" />
-      Start
-    </div>
-    <div id="clock"></div>
-  </div>
-
-  <!-- Notepad window -->
-  <div class="window" id="window-notepad">
-    <div class="title-bar">
-      Notepad
-      <button class="close-btn" onclick="closeWindow('notepad')">×</button>
-    </div>
-    <textarea placeholder="Type notes here..."></textarea>
-  </div>
-
-  <!-- Media Player window -->
-  <div class="window" id="window-media">
-    <div class="title-bar">
-      Media Player
-      <button class="close-btn" onclick="closeWindow('media')">×</button>
-    </div>
-    <div class="media-content">
-      <audio id="audio-player" src="audio/title.mp3" autoplay loop></audio>
-      <p>Now playing: title.mp3</p>
-    </div>
+  <div id="desktop" style="display: none;">
+    <!-- Aici e desktopul tău XP -->
+    <img src="images/bliss.jpg" id="wallpaper">
+    <div id="start-button"></div>
+    <!-- Poți adăuga shortcut-urile aici -->
   </div>
 
   <script src="script.js"></script>
