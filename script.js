@@ -1,16 +1,30 @@
-let started = false;
+function startTour() {
+  document.getElementById("welcome-screen").style.display = "none";
+  document.getElementById("desktop").style.display = "block";
 
-window.addEventListener('click', () => {
-  if (started) return;
-  started = true;
-
-  // Redă sunetul
-  const audio = new Audio('audio/title.mp3');
+  const audio = document.getElementById("welcome-audio");
+  audio.volume = 1.0;
   audio.play();
+}
 
-  // Așteaptă 4 secunde și apoi schimbă spre desktop
-  setTimeout(() => {
-    document.getElementById('welcome-screen').style.display = 'none';
-    document.getElementById('desktop').style.display = 'block';
-  }, 4000);
-});
+function updateClock() {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, "0");
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+  document.getElementById("clock").textContent = `${hours}:${minutes}`;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
+function openWindow(id) {
+  document.getElementById("window-" + id).style.display = "block";
+}
+
+function closeWindow(id) {
+  document.getElementById("window-" + id).style.display = "none";
+}
+
+function toggleStartMenu() {
+  alert("Start Menu is not implemented yet.");
+}
