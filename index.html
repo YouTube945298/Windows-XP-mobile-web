@@ -3,66 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Windows XP Mobile</title>
+  <title>Windows XP Mobile Web</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="desktop">
-    <!-- Desktop icons -->
     <div class="icon" onclick="openWindow('notepad')">
       <img src="icons/notepad.png" alt="Notepad" />
-      <span>Notepad</span>
+      <div>Notepad</div>
     </div>
     <div class="icon" onclick="openWindow('media')">
       <img src="icons/media.png" alt="Media Player" />
-      <span>Media Player</span>
+      <div>Media Player</div>
     </div>
   </div>
 
-  <!-- Taskbar -->
   <div id="taskbar">
     <div class="start-button" onclick="toggleStartMenu()">
-      <img src="icons/windows-logo.png" alt="Windows Logo" />
+      <img src="icons/windows-logo.png" alt="Start" />
       Start
     </div>
     <div id="clock"></div>
   </div>
 
-  <!-- Windows -->
-  <div id="window-notepad" class="window">
+  <!-- Notepad window -->
+  <div class="window" id="window-notepad">
     <div class="title-bar">
-      <span>Notepad</span>
+      Notepad
       <button class="close-btn" onclick="closeWindow('notepad')">×</button>
     </div>
-    <textarea></textarea>
+    <textarea placeholder="Type notes here..."></textarea>
   </div>
 
-  <div id="window-media" class="window">
+  <!-- Media Player window -->
+  <div class="window" id="window-media">
     <div class="title-bar">
-      <span>Media Player</span>
+      Media Player
       <button class="close-btn" onclick="closeWindow('media')">×</button>
     </div>
-    <div class="media-content">Playing: title.mp3</div>
+    <div class="media-content">
+      <audio id="audio-player" src="audio/title.mp3" autoplay loop></audio>
+      <p>Now playing: title.mp3</p>
+    </div>
   </div>
 
-  <script>
-    // JavaScript to open/close windows and clock
-    function openWindow(id) {
-      document.getElementById('window-' + id).style.display = 'block';
-    }
-    function closeWindow(id) {
-      document.getElementById('window-' + id).style.display = 'none';
-    }
-    function toggleStartMenu() {
-      alert('Start Menu clicked (not implemented)');
-    }
-    function updateClock() {
-      const clock = document.getElementById('clock');
-      const now = new Date();
-      clock.textContent = now.toLocaleTimeString();
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
