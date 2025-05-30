@@ -1,83 +1,27 @@
+/* Wallpaper Bliss as background */
 body {
-  margin: 0;
+  background: url('images/bliss.jpg') no-repeat center center fixed;
+  background-size: cover;
   font-family: Tahoma, sans-serif;
-  background-color: #3a6ea5;
+  margin: 0;
   overflow: hidden;
+  color: #000;
 }
 
-#welcome-screen {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 64, 0.9);
+/* Desktop styles */
+#desktop {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.welcome-box {
-  background: #d6e7f7;
-  border: 2px solid #1a3b70;
-  border-radius: 10px;
+  flex-wrap: wrap;
   padding: 20px;
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 0 20px #000;
-}
-
-button {
-  margin-top: 15px;
-  padding: 10px 25px;
-  background-color: #2b4f81;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.taskbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  height: 40px;
-  width: 100%;
-  background: #1a3b70;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-}
-
-.start-button {
-  padding: 0 15px;
-  background: #2b4f81;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.clock {
-  padding: 0 10px;
-}
-
-.desktop-icons {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
+  width: 64px;
+  text-align: center;
   cursor: pointer;
+  color: white;
+  text-shadow: 0 0 3px black;
 }
 
 .icon img {
@@ -85,36 +29,91 @@ button {
   height: 48px;
 }
 
+/* Taskbar styles */
+#taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: #003300;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+  user-select: none;
+}
+
+.start-button {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  background: linear-gradient(to bottom, #4CAF50, #2E7D32);
+  height: 100%;
+  cursor: pointer;
+  border-radius: 3px 0 0 3px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.start-button img {
+  width: 20px;
+  margin-right: 8px;
+}
+
+/* Clock */
+#clock {
+  margin-left: auto;
+  padding-right: 15px;
+  font-family: monospace;
+}
+
+/* Windows (app windows) */
 .window {
-  position: absolute;
-  top: 60px;
-  left: 20px;
-  width: 90%;
-  max-width: 400px;
-  background: #ffffff;
-  border: 2px solid #1a3b70;
-  border-radius: 5px;
-  z-index: 10;
+  position: fixed;
+  top: 80px;
+  left: 80px;
+  width: 300px;
+  background: white;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+  display: none;
+  flex-direction: column;
+  font-family: Tahoma, sans-serif;
+  color: black;
+  z-index: 1000;
 }
 
 .title-bar {
-  background: #2b4f81;
+  background: #0a64ad;
   color: white;
   padding: 5px 10px;
+  font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.window-buttons button {
+.close-btn {
   background: transparent;
   border: none;
   color: white;
   font-size: 16px;
   cursor: pointer;
+  font-weight: bold;
 }
 
-.window-body {
+textarea {
+  flex-grow: 1;
+  width: 100%;
+  border: none;
+  resize: none;
   padding: 10px;
-  background: white;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.media-content {
+  padding: 20px;
+  font-size: 16px;
 }
