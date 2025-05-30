@@ -2,67 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Windows XP Mobile</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Welcome Screen -->
-  <div id="welcome-screen">
-    <div class="welcome-box">
-      <h1>Welcome to Windows XP Mobile</h1>
-      <p>Experience XP, redesigned for mobile.</p>
-      <button onclick="startTour()">Start Tour</button>
+  <div id="desktop">
+    <!-- Desktop icons -->
+    <div class="icon" onclick="openWindow('notepad')">
+      <img src="icons/notepad.png" alt="Notepad" />
+      <span>Notepad</span>
+    </div>
+    <div class="icon" onclick="openWindow('media')">
+      <img src="icons/media.png" alt="Media Player" />
+      <span>Media Player</span>
     </div>
   </div>
 
-  <!-- Audio -->
-  <audio id="welcome-audio" src="audio/title.mp3"></audio>
-
-  <!-- Desktop -->
-  <div id="desktop" style="display: none;">
-    <div class="taskbar">
-      <div class="start-button" onclick="toggleStartMenu()">Start</div>
-      <div class="taskbar-space"></div>
-      <div class="clock" id="clock">--:--</div>
+  <!-- Taskbar -->
+  <div id="taskbar">
+    <div class="start-button" onclick="toggleStartMenu()">
+      <img src="icons/windows-logo.png" alt="Windows Logo" />
+      Start
     </div>
-
-    <div class="desktop-icons">
-      <div class="icon" onclick="openWindow('notepad')">
-        <img src="icons/notepad.png" />
-        <span>Notepad</span>
-      </div>
-      <div class="icon" onclick="openWindow('media')">
-        <img src="icons/media.png" />
-        <span>Media Player</span>
-      </div>
-    </div>
-
-    <div id="window-notepad" class="window" style="display:none;">
-      <div class="title-bar">
-        <span>Notepad</span>
-        <div class="window-buttons">
-          <button onclick="closeWindow('notepad')">✕</button>
-        </div>
-      </div>
-      <div class="window-body">
-        <textarea rows="10" style="width: 100%; height: 100%;">Welcome to XP Mobile!</textarea>
-      </div>
-    </div>
-
-    <div id="window-media" class="window" style="display:none;">
-      <div class="title-bar">
-        <span>Windows Media Player</span>
-        <div class="window-buttons">
-          <button onclick="closeWindow('media')">✕</button>
-        </div>
-      </div>
-      <div class="window-body">
-        <p>Playing: title.mp3</p>
-      </div>
-    </div>
+    <div id="clock"></div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Windows -->
+  <div id="window-notepad" class="window">
+    <div class="title-bar">
+      <span>Notepad</span>
+      <button class="close-btn" onclick="closeWindow('notepad')">×</button>
+    </div>
+    <textarea></textarea>
+  </div>
+
+  <div id="window-media" class="window">
+    <div class="title-bar">
+      <span>Media Player</span>
+      <button class="close-btn" onclick="closeWindow('media')">×</button>
+    </div>
+    <div class="media-content">Playing: title.mp3</div>
+  </div>
+
+  <script>
+    // JavaScript to open/close windows and clock
+    function openWindow(id) {
+      document.getElementById('window-' + id).style.display = 'block';
+    }
+    function closeWindow(id) {
+      document.getElementById('window-' + id).style.display = 'none';
+    }
+    function toggleStartMenu() {
+      alert('Start Menu clicked (not implemented)');
+    }
+    function updateClock() {
+      const clock = document.getElementById('clock');
+      const now = new Date();
+      clock.textContent = now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 </body>
 </html>
