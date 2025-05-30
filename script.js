@@ -1,24 +1,16 @@
-// Deschide fereastra cu id-ul window-notepad sau window-media
-function openWindow(id) {
-  document.getElementById('window-' + id).style.display = 'flex';
-}
+let started = false;
 
-// Închide fereastra
-function closeWindow(id) {
-  document.getElementById('window-' + id).style.display = 'none';
-}
+window.addEventListener('click', () => {
+  if (started) return;
+  started = true;
 
-// Funcție placeholder pentru butonul Start
-function toggleStartMenu() {
-  alert('Start Menu clicked (not implemented)');
-}
+  // Redă sunetul
+  const audio = new Audio('audio/title.mp3');
+  audio.play();
 
-// Ceas digital în taskbar
-function updateClock() {
-  const clock = document.getElementById('clock');
-  const now = new Date();
-  clock.textContent = now.toLocaleTimeString();
-}
-
-setInterval(updateClock, 1000);
-updateClock();
+  // Așteaptă 4 secunde și apoi schimbă spre desktop
+  setTimeout(() => {
+    document.getElementById('welcome-screen').style.display = 'none';
+    document.getElementById('desktop').style.display = 'block';
+  }, 4000);
+});
